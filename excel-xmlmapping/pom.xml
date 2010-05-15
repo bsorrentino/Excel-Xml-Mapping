@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.bsc.poi</groupId>
+  <artifactId>excel-xmlmapping</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>excel-xmlmapping</name>
+  <url>http://kenai.com/projects/excel-xmlmapping</url>
+
+  <issueManagement>
+      <system>JIRA</system>
+      <url>http://kenai.com/jira/browse/EXCEL_XMLMAPPING</url>
+  </issueManagement>
+
+  <pluginRepositories>
+  	<pluginRepository>
+  		<id>codehaus-snapshots</id>
+  		<name>codehaus-snapshots</name>
+  		<url>http://snapshots.repository.codehaus.org/</url>
+  		<releases>
+  			<enabled>false</enabled>
+  		</releases>
+  	</pluginRepository>
+  	<pluginRepository>
+  		<id>codehaus-releases</id>
+  		<name>codehaus-releases</name>
+  		<url>http://repository.codehaus.org/</url>
+  		<snapshots>
+  			<enabled>false</enabled>
+  		</snapshots>
+  	</pluginRepository>
+  </pluginRepositories>
+
+  <scm>
+      <url>https://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</url>
+      <connection>scm:svn:https://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</connection>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.4</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>3.5-beta6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>3.5-beta6</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+      <plugins>
+
+      <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <configuration>
+          <descriptors>
+            <descriptor>src/main/assembly/assembly.xml</descriptor>
+          </descriptors>
+
+          </configuration>
+      </plugin>
+      <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>1.5</source>
+            <target>1.5</target>
+          </configuration>
+      </plugin>
+
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>xmlbeans-maven-plugin</artifactId>
+            <version>2.3.2</version>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>xmlbeans</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <inherited>true</inherited>
+            <configuration>
+                <sourceSchemas>
+                    <sourceSchema>sml-table.xsd</sourceSchema>
+                    <sourceSchema>sml-singleCellTable.xsd</sourceSchema>
+                </sourceSchemas>
+
+               <schemaDirectory>src/main/xsd</schemaDirectory>
+            </configuration>
+          </plugin>
+
+      </plugins>
+
+<extensions>
+      <extension>
+        <groupId>org.jvnet.wagon-svn</groupId>
+        <artifactId>wagon-svn</artifactId>
+        <version>1.8</version>
+      </extension>
+</extensions>
+
+  </build>
+
+<distributionManagement>
+    <repository>
+        <id>kenai-project</id>
+        <url>svn:https://kenai.com/svn/excel-xmlmapping~svn/mavenrepo</url>
+    </repository>
+    <snapshotRepository>
+        <id>kenai-project</id>
+        <url>svn:https://kenai.com/svn/excel-xmlmapping~svn/mavenrepo</url>
+    </snapshotRepository>
+</distributionManagement>
+</project>
