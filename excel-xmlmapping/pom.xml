@@ -32,8 +32,8 @@
   </pluginRepositories>
 
   <scm>
-      <url>https://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</url>
-      <connection>scm:svn:https://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</connection>
+      <url>http://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</url>
+      <connection>scm:svn:http://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</connection>
   </scm>
   <dependencies>
     <dependency>
