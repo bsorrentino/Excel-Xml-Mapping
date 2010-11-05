@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.hssf.util.CellReference;
 import org.apache.poi.openxml4j.opc.PackagePart;
 import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -474,6 +475,8 @@ public class WorkbookUtils
             throw new IllegalStateException(msg);
         }
 
+        XSSFCellStyle[] _cellStyle = new XSSFCellStyle[(int)columns.getCount()];
+        
         // FOR EACH COLUMN
         for( int col =0 ; col< columns.getCount(); ++col ) {
 
@@ -517,7 +520,7 @@ public class WorkbookUtils
                 continue;
             }
 
-
+             
             // FILL SHEET
             int rowNum = endCell.getRow();
 
@@ -539,6 +542,12 @@ public class WorkbookUtils
                 final int cellNum = startCell.getCol() + col;
 
                 XSSFCell cell = row.getCell( cellNum, Row.CREATE_NULL_AS_BLANK  );
+                if( _cellStyle[col] == null ) {
+                    _cellStyle[col] = cell.getCellStyle();
+                }
+                else {
+                    cell.setCellStyle( _cellStyle[col] );
+                }
 
                 assert cell!=null;
                 if( cell==null ) {
@@ -546,6 +555,8 @@ public class WorkbookUtils
                     log.warn( msg);
                     continue;
                 }
+
+
 
                 setCellValue( cell, value, colPr.getXmlDataType() );
                 //cell.setCellValue( ((SimpleValue)value).getStringValue() );

@@ -3,7 +3,7 @@
   <groupId>org.bsc.poi</groupId>
   <artifactId>excel-xmlmapping</artifactId>
   <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
   <name>excel-xmlmapping</name>
   <url>http://kenai.com/projects/excel-xmlmapping</url>
 
@@ -109,7 +109,7 @@
       <extension>
         <groupId>org.jvnet.wagon-svn</groupId>
         <artifactId>wagon-svn</artifactId>
-        <version>1.8</version>
+        <version>1.9</version>
       </extension>
 </extensions>
 
