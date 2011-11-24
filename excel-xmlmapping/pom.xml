@@ -3,7 +3,7 @@
   <groupId>org.bsc.poi</groupId>
   <artifactId>excel-xmlmapping</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.2-beta1</version>
   <name>excel-xmlmapping</name>
   <url>http://kenai.com/projects/excel-xmlmapping</url>
 
@@ -115,14 +115,30 @@
 
   </build>
 
+<profiles>
+<profile>
+    <id>kenai</id>
+    <activation><activeByDefault>true</activeByDefault></activation>
+        <properties>
+            <repo.url>svn:https://kenai.com/svn/excel-xmlmapping~svn/mavenrepo</repo.url>
+            <release.repo.id>kenai-project</release.repo.id>
+            <release.repo.url>${repo.url}</release.repo.url>
+            <snapshot.repo.id>kenai-project</snapshot.repo.id>
+            <snapshot.repo.url>${repo.url}</snapshot.repo.url>
+        </properties>    
+</profile>    
+</profiles>    
+
 <distributionManagement>
     <repository>
-        <id>kenai-project</id>
-        <url>svn:https://kenai.com/svn/excel-xmlmapping~svn/mavenrepo</url>
+        <id>${release.repo.id}</id>
+        <url>${release.repo.url}</url>
     </repository>
+    
     <snapshotRepository>
-        <id>kenai-project</id>
-        <url>svn:https://kenai.com/svn/excel-xmlmapping~svn/mavenrepo</url>
-    </snapshotRepository>
+        <id>${snapshot.repo.id}</id>
+        <url>${snapshot.repo.url}</url>
+    </snapshotRepository>    
 </distributionManagement>
+
 </project>
