@@ -3,9 +3,9 @@
   <groupId>org.bsc.poi</groupId>
   <artifactId>excel-xmlmapping</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-beta1</version>
+  <version>1.2-SNAPSHOT</version>
   <name>excel-xmlmapping</name>
-  <url>http://kenai.com/projects/excel-xmlmapping</url>
+  <url>https://github.com/bsorrentino/Excel-Xml-Mapping</url>
 
   <issueManagement>
       <system>JIRA</system>
@@ -32,9 +32,11 @@
   </pluginRepositories>
 
   <scm>
-      <url>http://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</url>
-      <connection>scm:svn:http://svn.kenai.com/svn/excel-xmlmapping~svn/trunk/excel-xmlmapping</connection>
+      <url>https://bsorrentino@github.com/bsorrentino/Excel-Xml-Mapping.git</url>
+      <developerConnection>scm:git:https://bsorrentino@github.com/bsorrentino/Excel-Xml-Mapping.git</developerConnection>
+      <connection>scm:git:https://bsorrentino@github.com/bsorrentino/Excel-Xml-Mapping.git</connection>
   </scm>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -105,14 +107,13 @@
 
       </plugins>
 
-<extensions>
-      <extension>
-        <groupId>org.jvnet.wagon-svn</groupId>
-        <artifactId>wagon-svn</artifactId>
-        <version>1.9</version>
-      </extension>
-</extensions>
-
+        <extensions>
+              <extension>
+                <groupId>org.jvnet.wagon-svn</groupId>
+                <artifactId>wagon-svn</artifactId>
+                <version>1.9</version>
+              </extension>
+        </extensions>
   </build>
 
 <profiles>
@@ -126,6 +127,8 @@
             <snapshot.repo.id>kenai-project</snapshot.repo.id>
             <snapshot.repo.url>${repo.url}</snapshot.repo.url>
         </properties>    
+
+
 </profile>    
 </profiles>    
 
