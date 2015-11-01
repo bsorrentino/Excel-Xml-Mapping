@@ -1,8 +1,7 @@
 
-This project has moving to GITHUB from KENAI
+This project has moving to GITHUB from [KENAI](http://kenai.com/projects/excel-xmlmapping/pages/Home)
 
-http://kenai.com/projects/excel-xmlmapping/pages/Home
-
+----
 
 ## What is Excel Xml Mapping
 
